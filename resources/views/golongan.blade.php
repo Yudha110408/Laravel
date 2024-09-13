@@ -5,52 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Golongan</title>
     <style>
-        /* Custom Colors */
-        :root {
-            --primary-color: #006400; /* Dark green color */
-            --header-bg-color: #003300; /* Darker green for header */
-            --table-header-bg-color: #006400; /* Dark gray for table header */
-            --table-row-bg-color: #e0e0e0; /* Light gray for table rows */
-            --table-row-hover-bg-color: #c0c0c0; /* Gray for table row hover */
-            --text-color: #000000; /* Default text color */
-            --link-color: #FFFFFF; /* White color for links */
-            --link-hover-bg-color: #004d00; /* Darker green for hover effect */
-        }
-
         body {
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            color: var(--text-color);
+            background-color: #f4f4f4;
+            color: #333;
             margin: 0;
+            padding: 0;
             background-image: url('wallpaperflare.com_wallpaper.jpg'); /* Background image for body */
-
-            padding: 20px;
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
         }
 
         h2 {
+            color: #FFFFFF; /* Warna teks putih */
+            margin-top: 20px;
             text-align: center;
-            color: var(--text-color);
-            margin-bottom: 20px;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: #ffffff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-
-        .button-container {
-            text-align: center;
-            margin-bottom: 20px;
         }
 
         a {
             text-decoration: none;
-            color: var(--link-color);
-            background-color: var(--primary-color);
+            color: #FFFFFF;
+            background-color: #006400; /* Warna hijau gelap sesuai tabel golongan */
             padding: 10px 20px;
             border-radius: 5px;
             margin: 5px;
@@ -59,41 +40,41 @@
         }
 
         a:hover {
-            background-color: var(--link-hover-bg-color);
+            background-color: #004d00; /* Warna hijau yang lebih gelap saat hover */
         }
 
         table {
-            width: 100%;
+            width: 80%;
             border-collapse: collapse;
-            margin-top: 20px;
-            background-color: #ffffff;
-            color: var(--text-color);
-            border-radius: 5px;
+            margin-bottom: 20px;
+            background-color: #fff;
+            border-radius: 8px;
             overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        table th, table td {
+        th, td {
             padding: 10px;
-            text-align: center;
-            border: 1px solid var(--text-color);
+            text-align: left;
+            border-bottom: 1px solid #ddd;
         }
 
-        table th {
-            background-color: var(--table-header-bg-color);
-            color: var(--link-color);
+        th {
+            background-color: #004d00;
+            color: white;
         }
 
-        table tr:nth-child(even) {
-            background-color: var(--table-row-bg-color);
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
         }
 
-        table tr:hover {
-            background-color: var(--table-row-hover-bg-color);
+        tr:hover {
+            background-color: #ddd;
         }
 
         .action-buttons a {
             text-decoration: none;
-            color: var(--link-color);
+            color: #FFFFFF;
             padding: 5px 10px;
             border-radius: 5px;
             margin: 2px;
@@ -116,49 +97,55 @@
         .btn-delete:hover {
             background-color: #c9302c;
         }
+
+        .button-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h2>Golongan</h2>
-        <div class="button-container">
-            <a href="/golongan/tambah">+ Tambah Golongan Baru</a>
-        </div>
-        <table>
-            <thead>
-                <tr>
-                    <th>ID Golongan</th>
-                    <th>Nama Golongan</th>
-                    <th>Gaji Pokok</th>
-                    <th>Tunjangan Keluarga</th>
-                    <th>Tunjangan Transport</th>
-                    <th>Tunjangan Makan</th>
-                    <th>Opsi</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($golongan as $g)
-                <tr>
-                    <td>{{ $g->golongan_id }}</td>
-                    <td>{{ $g->golongan_nama }}</td>
-                    <td>{{ $g->gaji_pokok }}</td>
-                    <td>{{ $g->tunjangan_keluarga }}</td>
-                    <td>{{ $g->tunjangan_transport }}</td>
-                    <td>{{ $g->tunjangan_makan }}</td>
-                    <td class="action-buttons">
-                        <a href="/golongan/edit/{{ $g->golongan_id }}" class="btn-edit">
-                            Edit
-                        </a>
-                        <a href="/golongan/hapus/{{ $g->golongan_id }}" class="btn-delete">
-                            Hapus
-                        </a>
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
+    <h2>Golongan</h2>
+    <div class="button-container">
+        <a href="/golongan/tambah">+ Tambah Golongan Baru</a>
     </div>
-    <a href="/home">HOME</a>
+    <table>
+        <thead>
+            <tr>
+                <th>ID Golongan</th>
+                <th>Nama Golongan</th>
+                <th>Gaji Pokok</th>
+                <th>Tunjangan Keluarga</th>
+                <th>Tunjangan Transport</th>
+                <th>Tunjangan Makan</th>
+                <th>Opsi</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($golongan as $g)
+            <tr>
+                <td>{{ $g->golongan_id }}</td>
+                <td>{{ $g->golongan_nama }}</td>
+                <td>{{ $g->gaji_pokok }}</td>
+                <td>{{ $g->tunjangan_keluarga }}</td>
+                <td>{{ $g->tunjangan_transport }}</td>
+                <td>{{ $g->tunjangan_makan }}</td>
+                <td class="action-buttons">
+                    <a href="/golongan/edit/{{ $g->golongan_id }}" class="btn-edit">Edit</a>
+                    <a href="/golongan/hapus/{{ $g->golongan_id }}" class="btn-delete" onclick="return confirmDelete();">Hapus</a>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+    <div class="button-container">
+        <a href="/home">HOME</a>
+    </div>
 
+    <script>
+        function confirmDelete() {
+            return confirm('Apakah Anda yakin ingin menghapus data ini?');
+        }
+    </script>
 </body>
 </html>

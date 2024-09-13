@@ -56,7 +56,7 @@
             color: #333;
         }
 
-        input[type="text"], input[type="number"] {
+        input[type="text"], input[type="number"], input[type="date"] {
             display: block;
             width: 100%;
             margin-bottom: 15px;
@@ -94,7 +94,7 @@
         <input type="number" name="pegawai_id" id="pegawai_id" required="required">
 
         <label for="bulan_lembur">Bulan Lembur:</label>
-        <input type="text" name="bulan_lembur" id="bulan_lembur" required="required">
+        <input type="date" name="bulan_lembur" id="bulan_lembur" required="required">
 
         <label for="jumlah_lembur">Jumlah Lembur:</label>
         <input type="number" name="jumlah_lembur" id="jumlah_lembur" required="required">

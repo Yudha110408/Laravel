@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BMW</title>
+    <title>SAMSUNG</title>
     <style>
         /* Custom Colors */
         :root {
@@ -12,7 +12,7 @@
             --footer-bg-color: rgba(0, 0, 0, 0.8); /* Darker for footer */
             --link-color: #FFFFFF; /* White color for links */
             --link-hover-bg-color: #32CD32; /* Light green for hover effect */
-            --text-color: #333333; /* Darker text color */
+            --text-color: #FFFFFF; /* Darker text color */
             --shadow-color: rgba(0, 0, 0, 0.1); /* Shadow effect color */
         }
 
@@ -37,7 +37,6 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             font-weight: bold;
-                
             background-size: cover;
             background-position: center;
             position: relative;
@@ -57,6 +56,7 @@
         header h1 {
             position: relative;
             z-index: 1;
+            font-weight: bolder; /* Mengatur ketebalan font menjadi lebih tebal */
         }
 
         main {
@@ -77,6 +77,14 @@
             line-height: 1.8;
             margin: 20px 0;
             color: var(--text-color);
+        }
+
+        .text-black {
+            color: #000000; /* Black color for specific text */
+        }
+
+        .text-bold {
+            font-weight: bold; /* Mengatur ketebalan font menjadi tebal */
         }
 
         .list-group {
@@ -127,19 +135,17 @@
 </head>
 <body>
     <header>
-        <h1>Welcome To BMW Store</h1>
+        <h1>Welcome To PERPUS SMKN 21 JAKARTA</h1>
     </header>
     <main>
-        <p><strong>Kami adalah perusahaan yang mengedepankan teknologi.</strong></p>
-        <h2>Data Kami</h2>
+        <p class="text-black text-bold"><strong>Kami adalah perusahaan yang mengedepankan teknologi.</strong></p>
+        <h2 class="text-black text-bold">Data Kami</h2>
         <div class="list-group">
             <a href="home">Home</a>
-            <a href="pegawai">Pegawai</a>
-            <a href="golongan">Golongan</a>
-            <a href="gaji">Gaji</a>
-            <a href="lembur">Lembur</a>
+            <a href="buku">Buku</a>
+            
         </div>
-        <p>Perusahaan BMW didirikan pada tahun 1916 oleh Franz Josef Popp. .</p>
+        <p class="text-black">Perusahaan SAMSUNG didirikan oleh Lee Byung-chul pada tahun 1 Maret 1938.</p>
     </main>
     <footer>
         <p>Pelayanan kami pasti baik? Hubungi kami untuk beri penilaian <a href="mailto:yudhamatraman@gmail.com" class="text-light">yudhamatraman@gmail.com</a></p>

@@ -11,11 +11,9 @@
             color: #333;
             margin: 0;
             padding: 0;
-            background-image: url('zuka-zurabishvili-IzR0mZxEevE-unsplash.jpg');
+            background-image: url('wallpaperflare.com_wallpaper.jpg'); /* Background image for body */
             background-size: cover; /* Menyesuaikan gambar agar mencakup seluruh area latar belakang */
             background-position: center center; /* Memastikan gambar berada di tengah */
-            background-image: url('wallpaperflare.com_wallpaper.jpg'); /* Background image for body */
-
             background-attachment: fixed; /* Gambar tetap di tempat saat menggulir halaman */
             display: flex;
             flex-direction: column;
@@ -25,24 +23,24 @@
         }
 
         h2 {
-            color: #004d00;
+            color: #FFFFFF; /* Warna teks putih */
             margin-top: 20px;
             text-align: center;
         }
 
         a {
             text-decoration: none;
-            color: #0066cc;
-            margin-bottom: 20px;
-            display: inline-block;
-            background-color: #f0f0f0;
+            color: #FFFFFF;
+            background-color: #006400; /* Warna hijau gelap sesuai tabel golongan */
             padding: 10px 20px;
             border-radius: 5px;
-            transition: background-color 0.3s;
+            margin: 5px;
+            display: inline-block;
+            transition: background-color 0.3s ease;
         }
 
         a:hover {
-            background-color: #e0e0e0;
+            background-color: #004d00; /* Warna hijau yang lebih gelap saat hover */
         }
 
         table {
@@ -74,13 +72,31 @@
             background-color: #ddd;
         }
 
-        td a {
-            color: #0066cc;
+        .action-buttons a {
             text-decoration: none;
+            color: #FFFFFF;
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin: 2px;
+            display: inline-block;
+            font-size: 0.9em;
+            transition: background-color 0.3s ease;
         }
 
-        td a:hover {
-            text-decoration: underline;
+        .btn-edit {
+            background-color: #f0ad4e;
+        }
+
+        .btn-edit:hover {
+            background-color: #ec971f;
+        }
+
+        .btn-delete {
+            background-color: #d9534f;
+        }
+
+        .btn-delete:hover {
+            background-color: #c9302c;
         }
 
         .center-links {
@@ -94,35 +110,45 @@
     <div class="center-links">
         <a href="/gaji/tambah">+ Tambah Gaji Pegawai</a>
     </div>
-    <table border="1">
-        <tr>
-            <th>Gaji ID</th>
-            <th>Pegawai ID</th>
-            <th>Jumlah Gaji</th>
-            <th>Jumlah Lembur</th>
-            <th>Potongan</th>
-            <th>Gaji Diterima</th>
-            <th>Tanggal Gaji</th>
-            <th>Aksi</th>
-        </tr>
-        @foreach ($gaji as $j)
-        <tr>
-            <td>{{ $j->gaji_id }}</td>
-            <td>{{ $j->pegawai_id }}</td>
-            <td>{{ $j->jumlah_gaji }}</td>
-            <td>{{ $j->jumlah_lembur }}</td>
-            <td>{{ $j->potongan }}</td>
-            <td>{{ $j->gaji_diterima }}</td>
-            <td>{{ $j->tanggal_gaji }}</td>
-            <td>
-                <a href="/gaji/edit/{{ $j->gaji_id }}">Edit</a> |
-                <a href="/gaji/hapus/{{ $j->gaji_id }}">Hapus</a>
-            </td>
-        </tr>
-        @endforeach
+    <table>
+        <thead>
+            <tr>
+                <th>Gaji ID</th>
+                <th>Pegawai ID</th>
+                <th>Jumlah Gaji</th>
+                <th>Jumlah Lembur</th>
+                <th>Potongan</th>
+                <th>Gaji Diterima</th>
+                <th>Tanggal Gaji</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($gaji as $j)
+            <tr>
+                <td>{{ $j->gaji_id }}</td>
+                <td>{{ $j->pegawai_id }}</td>
+                <td>{{ $j->jumlah_gaji }}</td>
+                <td>{{ $j->jumlah_lembur }}</td>
+                <td>{{ $j->potongan }}</td>
+                <td>{{ $j->gaji_diterima }}</td>
+                <td>{{ $j->tanggal_gaji }}</td>
+                <td class="action-buttons">
+                    <a href="/gaji/edit/{{ $j->gaji_id }}" class="btn-edit">Edit</a>
+                    <a href="/gaji/hapus/{{ $j->gaji_id }}" class="btn-delete" onclick="return confirmDelete();">Hapus</a>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
     </table>
     <div class="center-links">
         <a href="/home">HOME</a>
     </div>
+
+    <script>
+        function confirmDelete() {
+            return confirm('Apakah Anda yakin ingin menghapus data ini?');
+        }
+    </script>
 </body>
 </html>
