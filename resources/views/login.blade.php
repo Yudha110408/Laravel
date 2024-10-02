@@ -105,16 +105,24 @@
             <div class="form-group">
                 <label for="email">Email:</label>
                 <input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}" required autofocus>
+                <!-- Menampilkan error jika email tidak valid -->
+                @if ($errors->has('email'))
+                    <div class="alert">{{ $errors->first('email') }}</div>
+                @endif
             </div>
             <div class="form-group">
                 <label for="password">Password:</label>
                 <input type="password" class="form-control" id="password" name="password" required>
+                <!-- Menampilkan error jika password tidak valid -->
+                @if ($errors->has('password'))
+                    <div class="alert">{{ $errors->first('password') }}</div>
+                @endif
             </div>
             <div class="form-group form-check">
                 <input type="checkbox" class="form-check-input" id="remember" name="remember">
                 <label class="form-check-label" for="remember">Remember me</label>
             </div>
-        <a href="home">Login</a>
+            <button type="submit" class="btn btn-primary">Login</button>
         </form>
         <p>Belum punya akun? <a href="/register">Daftar di sini</a></p>
         <a href="/" class="home-button">HOME</a>

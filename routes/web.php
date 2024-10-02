@@ -65,4 +65,4 @@ Route::post('/register', [RegisterController::class, 'register'])->name('registe
 // Route untuk home
 Route::get('home', function () {
     return view('home');
-})->name('home');
+})->name('home');   

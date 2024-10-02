@@ -107,7 +107,7 @@
 <body>
     <h2>Data Buku</h2>
     <div class="center-links">
-        <a href="/buku/tambah">+ Tambah Buku Baru</a>
+        <a href="/tambah">+ Tambah Buku Baru</a>
     </div>
     <table border="1">
         <tr>
