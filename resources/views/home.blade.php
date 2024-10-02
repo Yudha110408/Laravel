@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAMSUNG</title>
+    <title>PERPUS</title>
     <style>
         /* Custom Colors */
         :root {
@@ -138,14 +138,13 @@
         <h1>Welcome To PERPUS SMKN 21 JAKARTA</h1>
     </header>
     <main>
-        <p class="text-black text-bold"><strong>Kami adalah perusahaan yang mengedepankan teknologi.</strong></p>
-        <h2 class="text-black text-bold">Data Kami</h2>
+        <p class="text-black text-bold"><strong>Selamat Datang Di Perpustakaan SMKN 21 Jakarta</strong></p>
+        <h2 class="text-black text-bold">INFO PERPUS</h2>
         <div class="list-group">
-            <a href="home">Home</a>
+            <a href="/">LogOut</a>
             <a href="buku">Buku</a>
-            
+
         </div>
-        <p class="text-black">Perusahaan SAMSUNG didirikan oleh Lee Byung-chul pada tahun 1 Maret 1938.</p>
     </main>
     <footer>
         <p>Pelayanan kami pasti baik? Hubungi kami untuk beri penilaian <a href="mailto:yudhamatraman@gmail.com" class="text-light">yudhamatraman@gmail.com</a></p>

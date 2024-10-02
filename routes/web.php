@@ -5,47 +5,64 @@ use App\Http\Controllers\BukuController;
 use App\Http\Controllers\GolonganController;
 use App\Http\Controllers\GajiController;
 use App\Http\Controllers\LemburController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
+
+// Route untuk halaman awal (landing page)
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('buku', [BukuController::class, 'index']);
 
- Route::get('golongan',[GolonganController::class,'index']);
-
- Route::get('gaji',[GajiController::class,'index']);
-
- Route::get('lembur',[LemburController::class,'index']);
-
- Route::get('/buku/tambah', [BukuController::class, 'tambah']);
- Route::post('/buku/store', [BukuController::class, 'store']);
-
- Route::get('/golongan/tambah',[GolonganController::class,'tambah']);
- Route::post('/golongan/storetambah',[GolonganController::class,'store']);
-
- Route::get('/gaji/tambah',[GajiController::class,'tambah']);
- Route::post('/gaji/storetambah',[GajiController::class,'store']);
-
- Route::get( '/lembur/tambah',[LemburController::class,'tambah']);
- Route::post('/lembur/storetambah',[LemburController::class,'store']);
-
- Route::get('/buku/edit/{id}', [BukuController::class, 'edit']);
- Route::post('/buku/update', [BukuController::class, 'update']);
-
- Route::get('/golongan/edit/{id}',[GolonganController::class,'edit']);
- Route::post('/golongan/update',[GolonganController::class,'storeupdate']);
-
- Route::get('/gaji/edit/{id}',[GajiController::class,'edit']);
- Route::post('/gaji/update',[GajiController::class,'storeupdate']);
-
- Route::get('/lembur/edit/{id}',[LemburController::class,'edit']);
- Route::post('/lembur/update',[LemburController::class,'storeupdate']);
-
- Route::get('/buku/hapus/{id}', [BukuController::class, 'hapus']);
- Route::get('/golongan/hapus/{id}',[GolonganController::class,'hapus']);
- Route::get('/gaji/hapus/{id}',[GajiController::class,'hapus']);
- Route::get('/lembur/hapus/{id}',[LemburController::class,'hapus']);
-
-
- Route::get('home', function () {
-    return view('home');
+// Resource routes untuk Buku
+Route::prefix('buku')->group(function() {
+    Route::get('/', [BukuController::class, 'index'])->name('buku.index');
+    Route::get('/tambah', [BukuController::class, 'create'])->name('buku.create');
+    Route::post('/store', [BukuController::class, 'store'])->name('buku.store');
+    Route::get('/edit/{id}', [BukuController::class, 'edit'])->name('buku.edit');
+    Route::post('/update/{id}', [BukuController::class, 'update'])->name('buku.update');
+    Route::get('/hapus/{id}', [BukuController::class, 'destroy'])->name('buku.destroy');
 });
+
+// Resource routes untuk Golongan
+Route::prefix('golongan')->group(function() {
+    Route::get('/', [GolonganController::class, 'index'])->name('golongan.index');
+    Route::get('/tambah', [GolonganController::class, 'create'])->name('golongan.create');
+    Route::post('/store', [GolonganController::class, 'store'])->name('golongan.store');
+    Route::get('/edit/{id}', [GolonganController::class, 'edit'])->name('golongan.edit');
+    Route::post('/update/{id}', [GolonganController::class, 'update'])->name('golongan.update');
+    Route::get('/hapus/{id}', [GolonganController::class, 'destroy'])->name('golongan.destroy');
+});
+
+// Resource routes untuk Gaji
+Route::prefix('gaji')->group(function() {
+    Route::get('/', [GajiController::class, 'index'])->name('gaji.index');
+    Route::get('/tambah', [GajiController::class, 'create'])->name('gaji.create');
+    Route::post('/store', [GajiController::class, 'store'])->name('gaji.store');
+    Route::get('/edit/{id}', [GajiController::class, 'edit'])->name('gaji.edit');
+    Route::post('/update/{id}', [GajiController::class, 'update'])->name('gaji.update');
+    Route::get('/hapus/{id}', [GajiController::class, 'destroy'])->name('gaji.destroy');
+});
+
+// Resource routes untuk Lembur
+Route::prefix('lembur')->group(function() {
+    Route::get('/', [LemburController::class, 'index'])->name('lembur.index');
+    Route::get('/tambah', [LemburController::class, 'create'])->name('lembur.create');
+    Route::post('/store', [LemburController::class, 'store'])->name('lembur.store');
+    Route::get('/edit/{id}', [LemburController::class, 'edit'])->name('lembur.edit');
+    Route::post('/update/{id}', [LemburController::class, 'update'])->name('lembur.update');
+    Route::get('/hapus/{id}', [LemburController::class, 'destroy'])->name('lembur.destroy');
+});
+
+// Route untuk login
+Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('login', [LoginController::class, 'login']);
+Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+
+// Route untuk register
+Route::get('/register', [RegisterController::class, 'showRegisterForm'])->name('register');
+Route::post('/register', [RegisterController::class, 'register'])->name('register.submit');
+
+// Route untuk home
+Route::get('home', function () {
+    return view('home');
+})->name('home');
