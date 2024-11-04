@@ -82,13 +82,13 @@
 </head>
 <body>
     <h3>Update Book Data</h3>
-    <a href="/buku">Back</a>
+
     <br/><br/>
 
-    <form action="/buku/update" method="post">
+    <form action="/update" method="post">
         {{ csrf_field() }}
         <input type="hidden" name="id" value="{{ $buku->buku_id }}">
-        
+
         <label for="judul">Title:</label>
         <input type="text" required="required" name="judul" id="judul" value="{{ $buku->buku_judul }}">
 
@@ -100,8 +100,9 @@
 
         <label for="penerbit">Publisher:</label>
         <textarea required="required" name="penerbit" id="penerbit">{{ $buku->buku_penerbit }}</textarea>
-        
+
         <input type="submit" value="Save Data">
+        <a href="/buku">Back</a>
     </form>
 </body>
 </html>

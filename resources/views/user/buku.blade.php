@@ -11,7 +11,7 @@
             color: #333;
             margin: 0;
             padding: 0;
-            background-image: url('wallpaperflare.com_wallpaper.jpg'); /* Background image for body */
+            background-image: url('wallpaperflare.com_wallpaper.jpg');
             background-size: cover;
             background-position: center center;
             background-attachment: fixed;
@@ -23,7 +23,7 @@
         }
 
         h2 {
-            color: #FFFFFF; /* Warna teks putih */
+            color: #FFFFFF;
             margin-top: 20px;
             text-align: center;
         }
@@ -31,7 +31,7 @@
         a {
             text-decoration: none;
             color: #FFFFFF;
-            background-color: #006400; /* Warna hijau gelap sesuai tabel golongan */
+            background-color: #006400;
             padding: 10px 20px;
             border-radius: 5px;
             margin: 5px;
@@ -40,7 +40,7 @@
         }
 
         a:hover {
-            background-color: #004d00; /* Warna hijau yang lebih gelap saat hover */
+            background-color: #004d00;
         }
 
         table {
@@ -99,15 +99,23 @@
         }
 
         .center-links {
+            position: absolute;
+            right: 150px;
+            left: 150px;
+            width: 200px;
+            height: 10px;
+        }
+
+        .center-link1{
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
     <h2>Data Buku</h2>
-    <div class="center-links">
-        <a href="/tambah">+ Tambah Buku Baru</a>
+    <div class="center-links1">
+        <a href="{{ route('tambahbuku') }}">+ Tambah Buku Baru</a> </br>
     </div>
     <table border="1">
         <tr>

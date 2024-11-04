@@ -141,7 +141,7 @@
     <div class="button-container">
         <a href="/home">HOME</a>
     </div>
-
+        
     <script>
         function confirmDelete() {
             return confirm('Apakah Anda yakin ingin menghapus data ini?');

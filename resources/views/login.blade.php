@@ -19,10 +19,10 @@
             align-items: center;
         }
         .container {
-            background: rgba(0, 0, 0, 0.7); /* Transparent black background */
-            padding: 20px;
-            border-radius: 10px;
-            width: 300px;
+            background: rgba(0, 0, 0, 06); /* Transparent black background */
+            padding: 30px;
+            border-radius: 20px;
+            width: 350px;
             text-align: center;
         }
         h2 {
@@ -125,7 +125,8 @@
             <button type="submit" class="btn btn-primary">Login</button>
         </form>
         <p>Belum punya akun? <a href="/register">Daftar di sini</a></p>
-        <a href="/" class="home-button">HOME</a>
+
+        <a href="/home" class="home-button">HOME</a>
     </div>
 </body>
 </html>

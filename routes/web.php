@@ -16,7 +16,7 @@ Route::get('/', function () {
 // Resource routes untuk Buku
 Route::prefix('buku')->group(function() {
     Route::get('/', [BukuController::class, 'index'])->name('buku.index');
-    Route::get('/tambah', [BukuController::class, 'create'])->name('buku.create');
+    Route::get('/tambah-buku', [BukuController::class, 'tambah'])->name('tambahbuku');
     Route::post('/store', [BukuController::class, 'store'])->name('buku.store');
     Route::get('/edit/{id}', [BukuController::class, 'edit'])->name('buku.edit');
     Route::post('/update/{id}', [BukuController::class, 'update'])->name('buku.update');
@@ -58,11 +58,20 @@ Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('login', [LoginController::class, 'login']);
 Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
+// Route untuk login admin
+
+
 // Route untuk register
 Route::get('/register', [RegisterController::class, 'showRegisterForm'])->name('register');
 Route::post('/register', [RegisterController::class, 'register'])->name('register.submit');
 
+
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/admin/dashboard', [AdminController::class, 'index']);
+});
+
+
 // Route untuk home
 Route::get('home', function () {
     return view('home');
-})->name('home');   
+})->name('home');

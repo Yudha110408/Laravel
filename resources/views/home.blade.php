@@ -87,12 +87,23 @@
             font-weight: bold; /* Mengatur ketebalan font menjadi tebal */
         }
 
+        /* Untuk Tombol Logout */
+        .list-group2{
+            position: absolute;
+            right: 150px;
+            width: 200px;
+            height: 120px;
+        }
+        
+        /* Untuk Tombol Buku */
         .list-group {
             margin: 30px 0;
             display: flex;
             flex-direction: column;
             gap: 15px;
         }
+
+
 
         a {
             color: var(--link-color);
@@ -141,9 +152,11 @@
         <p class="text-black text-bold"><strong>Selamat Datang Di Perpustakaan SMKN 21 Jakarta</strong></p>
         <h2 class="text-black text-bold">INFO PERPUS</h2>
         <div class="list-group">
-            <a href="/">LogOut</a>
-            <a href="buku">Buku</a>
+            <a href="/buku">Buku</a>
+        </div>
 
+        <div class="list-grup2">
+        <a href="/">LogOut</a>
         </div>
     </main>
     <footer>
